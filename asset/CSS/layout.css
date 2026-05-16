@@ -6,7 +6,7 @@
 
 .bd1 {
     font-family: 'segoe ui', sans-serif;
-    background-image: url(/IMG/parking.png);
+    background-image: url(../../IMG/parking.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -29,7 +29,7 @@
 }
 
 .login-container {
-    background-image: url(/IMG/parking.png);
+    background-image: url(../../IMG/parking.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -67,7 +67,7 @@
     flex: 1;
     padding: 25px;
     position: relative;
-    background-image: url(/IMG/parking2.png);
+    background-image: url(../../IMG/parking2.png);
     background-position: center;
     background-size: cover;
     min-width: 0;
@@ -102,12 +102,11 @@ header {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 10px rgb(0, 255, 255);
-    background-image: url(/IMG/parking.png);
+    background-image: url(../../IMG/parking.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* SIN overflow aquí — los hijos manejan su propio scroll */
 }
 
 .content-section.active {
@@ -120,7 +119,6 @@ header {
     border-radius: 10px;
     text-align: center;
     backdrop-filter: blur(4px);
-    /* SIN overflow aquí */
 }
 
 #home-section.active {
@@ -196,7 +194,6 @@ header {
     justify-content: center;
 }
 
-/* TABLA SCROLL — este es el único lugar donde se define el scroll */
 .table-container {
     width: 100%;
     overflow-x: auto;

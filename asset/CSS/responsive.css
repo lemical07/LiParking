@@ -48,12 +48,10 @@
 
     .content-section {
         padding: 15px;
-        /* NO overflow aquí */
     }
 
     .shadow-box {
         width: 100%;
-        /* NO overflow aquí */
     }
 
     .table-container {
