@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiParking - Dashboard</title>
+    <link rel="stylesheet" href="./asset/CSS/component.css">
+    <link rel="stylesheet" href="./asset/CSS/layout.css">
+    <link rel="stylesheet" href="./asset/CSS/responsive.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>LiParking</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#" data-section="home"> Home</a></li>
+                    <li><a href="#" data-section="vehicles">Vehicle Types</a></li>
+                    <li><a href="#" data-section="parking"> Parking Services</a></li>
+                    <li><a href="./history.html"> Reports</a></li>
+                </ul>
+            </nav>
+            <div class="user-info">
+                <span id="userName">Admin</span>
+                <button id="logOutBtn" class="btn-signout">Sign Out</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <button id="menuToggle" class="menu-toggle">☰</button>
+                <h1 id="pageTitle" class="tittle-header">Home</h1>
+                <button id="profileBtn" class="btn-profile">Profile</button>
+            </header>
+            <section id="home-section" class="content-section active">
+                <div class="home-shade">
+                    <div class="home-header">
+                        <div class="welcome-text">
+                            <h1>LiParking Dashboard</h1>
+                            <p>Current System Status</p>
+                        </div>
+                        <div class="digital-clock">
+                            <div id="clockTime">00:00:00</div>
+                            <div id="clockDate">Friday, May 15</div>
+                        </div>
+                    </div>
+
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-value" id="activeCars">0</span>
+                                <span class="stat-label">Active Vehicles</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-value" id="availableSpots">--</span>
+                                <span class="stat-label">Availacle Sports</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-value" id="todayEarnings">Q 0.00</span>
+                                <span class="stat-label">Today's Earnings</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="btn-action" onclick="document.querySelector('[data-section=\'parking\']').click()">
+                                <span>➕</span> Register Entray
+                            </button>
+                            <button class="btn-action" onclick="document.querySelector('[data-section=\'vehicles\']').click()">
+                                <span>⚙️</span> Manage Rates
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="vehicles-section" class="content-section hidden">
+                <div class="shadow-box">
+                    <div class="section-header">
+                        <h2>Vehicle Types Management</h2>
+                        <button id="newTypeBtn" class="btn-primary">+ New Type</button>
+                    </div>
+                    <!-- table-container AÑADIDO -->
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Vehicle</th>
+                                    <th>Hourly Rate</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyTypes">
+                                <tr>
+                                    <td colspan="4" class="empty-state">
+                                        There are no registered vehicle types yet.<br>
+                                        Click on "New Type" to add one.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+            <section id="parking-section" class="content-section hidden">
+                <div class="shadow-box">
+                    <div class="section-header">
+                        <h2>Registry Enter Vehicle</h2>
+                    </div>
+                    
+                    <form id="formParkingEntry" >
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="plate">License Plate</label>
+                                <input type="text" id="plate" placeholder="P-123ABC" required uppercase>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="slot">Selected Slot</label>
+                                <input type="text" id="slot" placeholder="Click a slot below..." readonly class="readonly-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="vehicleSelect">Vehicle Type</label>
+                                <select id="vehicleSelect" required>
+                                    <option value="" disabled selected>Select...</option>
+                                </select>
+                            </div>
+                        </div>
+            
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="entryTime">Entry Time</label>
+                                <input type="text" id="entryTime" readonly class="readonly-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="currentRate">Hourly Rate (Q)</label>
+                                <input type="text" id="currentRate" readonly class="readonly-input">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-confirm-entry">
+                                Confirm Entry
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="shadow-box" style="margin-top: 30px;">
+                    <div class="section-header">
+                        <h3>Parking Map Slots</h3>
+                        <div class="map-legend">
+                            <span class="badge available">Available</span>
+                            <span class="badge occupied">Occupied</span>
+                        </div>
+                    </div>
+                    <div id="slotsContainer" class="slots-grid">
+                        <p style="text-align: center; color: #888;">Select a vehicle type to view available slots...</p>
+                    </div>
+                </div>
+            
+                <div class="shadow-box" style="margin-top: 30px;">
+                    <h3>Vehicles in Parking</h3>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Plate</th>
+                                    <th>Type</th>
+                                    <th>Entry Time</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="parkingTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div class="modal" id="modalType">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">New Vehicle Type</h3>
+                <button class="close-modal" id="closeModal">✕</button>
+            </div>
+            
+            <form id="formType">
+                <div class="form-group">
+                    <label for="code">Code</label>
+                    <input type="text" id="code" maxlength="10" placeholder="C-A0001" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="names">Vehicle Type</label>
+                    <select id="names" required>
+                        <option value="" disabled selected>Select a vehicle...</option>
+                        <option value="Motorcycle" data-price="15.00">Motorcycle</option>
+                        <option value="Car" data-price="30.00">Car</option>
+                        <option value="Bus" data-price="75.00">Bus</option>
+                        <option value="Truck" data-price="100.00">Truck</option>
+                    </select>
+                </div>
+        
+                <div class="form-group">
+                    <label for="tarifa">Hourly Rate (Q)</label>
+                    <input type="number" id="Hrate" step="0.01" min="0" placeholder="00.00 GTQ" required>
+                </div>
+        
+                <div class="modal-buttons">
+                    <button type="button" class="btn-cancel" id="btnCancel">Cancel</button>
+                    <button type="submit" class="btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="modalSlotDetails">
+        <div class="modal-content info-card">
+            <div class="modal-header">
+                <h3>Slot Information</h3>
+                <button class="close-modal" id="closeSlotModal">✕</button>
+            </div>
+            <div class="info-body">
+                <table class="info-table">
+                    <tr>
+                        <td><strong>ID:</strong></td>
+                        <td id="infoID">---</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Plate:</strong></td>
+                        <td id="infoPlate">---</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hour:</strong></td>
+                        <td id="infoTime">---</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Total (h):</strong></td>
+                        <td id="infoTotal">---</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-buttons">
+                <button type="button" id="btnEditSlot" class="btn-edit">Edit</button>
+                <button type="button" id="btnSaveVacate" class="btn-save-vacate">Confirm Exit</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal: Plate Already Registered -->
+<div class="modal" id="modalPlateError">
+    <div class="modal-content info-card">
+        <div class="modal-header">
+            <h3>Entry Error</h3>
+            <button class="close-modal" id="closePlateError">✕</button>
+        </div>
+        <div class="info-body" style="padding: 20px; text-align:center;">
+            <p id="plateErrorMsg">This vehicle is already inside.</p>
+        </div>
+        <div class="modal-buttons">
+            <button type="button" class="btn-save" id="btnClosePlateError">OK</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Exit / Pay Receipt -->
+<div class="modal" id="modalReceipt">
+    <div class="modal-content info-card">
+        <div class="modal-header">
+            <h3>🧾 Receipt</h3>
+            <button class="close-modal" id="closeReceiptModal">✕</button>
+        </div>
+        <div class="info-body">
+            <table class="info-table">
+                <tr><td><strong>Plate:</strong></td><td id="receiptPlate">---</td></tr>
+                <tr><td><strong>Stay:</strong></td><td id="receiptHours">---</td></tr>
+                <tr><td><strong>Rate:</strong></td><td id="receiptRate">---</td></tr>
+                <tr><td><strong>Total:</strong></td><td id="receiptTotal">---</td></tr>
+            </table>
+        </div>
+        <div class="modal-buttons">
+            <button type="button" class="btn-save-vacate" id="btnConfirmExit">Confirm Exit</button>
+            <button type="button" class="btn-cancel" id="btnCancelExit">Cancel</button>
+        </div>
+    </div>
+</div>
+<div class="modal" id="modalProfile">
+    <div class="modal-content info-card">
+        <div class="modal-header">
+            <h3>Profile</h3>
+            <button class="close-modal" id="closeProfileModal">✕</button>
+        </div>
+        <div class="info-body">
+            <form id="formProfile">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="profileName" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="profileEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" id="profilePassword" placeholder="Leave blank to keep current">
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" class="btn-cancel" id="btnCancelProfile">Cancel</button>
+                    <button type="submit" class="btn-save">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <script src="./asset/JS/main.js"></script>
+</body>
+</html>
