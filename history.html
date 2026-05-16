@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiParking - History</title>
+
+    <link rel="stylesheet" href="./asset/CSS/component.css">
+    <link rel="stylesheet" href="./asset/CSS/layout.css">
+    <link rel="stylesheet" href="./asset/CSS/responsive.css">
+</head>
+
+<body>
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>LiParking</h2>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="./dashboard.html">Home</a></li>
+                    <li><a href="./dashboard.html">Vehicle Types</a></li>
+                    <li><a href="./dashboard.html">Parking Services</a></li>
+                    <li class="active"><a href="./history.html">Reports</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-info">
+                <span id="userName">Admin</span>
+                <button id="logOutBtn" class="btn-signout">Sign Out</button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main-content">
+
+            <header>
+                <button id="menuToggle" class="menu-toggle">☰</button>
+                <h1 class="tittle-header">Reports / History</h1>
+                <div></div>
+            </header>
+
+            <!-- IMPORTANTE -->
+            <section id="history-section" class="content-section active">
+
+                <div class="shadow-box">
+
+                    <div class="section-header">
+                        <h2>Parking History</h2>
+
+                        <button id="btnClearHistory" class="btn-delete">
+                            Clear History
+                        </button>
+                    </div>
+
+                    <div class="table-container">
+
+                        <table class="data-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Slot</th>
+                                    <th>Plate</th>
+                                    <th>Type</th>
+                                    <th>Entry</th>
+                                    <th>Exit</th>
+                                    <th>Hours</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="historyTableBody">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <div class="stats-container" style="margin-top:20px;">
+
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-value" id="totalRecords">0</span>
+                                <span class="stat-label">Total Records</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-info">
+                                <span class="stat-value" id="totalEarnings">Q 0.00</span>
+                                <span class="stat-label">Total Earnings</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="./asset/JS/history.js"></script>
+</body>
+</html>
