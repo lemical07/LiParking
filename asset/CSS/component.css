@@ -96,7 +96,7 @@
 }
 
 .btn-edit, 
-.btn-delete, 
+.btn-delete-reset, 
 .btn-save-vacate {
     width: 100px;
     padding: 5px;
@@ -113,7 +113,7 @@
 }
 
 .btn-edit:hover, 
-.btn-delete:hover { 
+.btn-delete-reset:hover { 
     background: #030303a6;
     color:#FFD700;
     box-shadow: none;
