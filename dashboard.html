@@ -12,7 +12,7 @@
     <div class="dashboard">
         <aside class="sidebar">
             <div class="logo">
-                <h2>LiParking</h2>
+                <h2>🏢LiParking</h2>
             </div>
             <nav>
                 <ul>
@@ -38,7 +38,7 @@
                 <div class="home-shade">
                     <div class="home-header">
                         <div class="welcome-text">
-                            <h1>LiParking Dashboard</h1>
+                            <h1>📊LiParking Dashboard</h1>
                             <p>Current System Status</p>
                         </div>
                         <div class="digital-clock">
@@ -51,19 +51,19 @@
                         <div class="stat-card">
                             <div class="stat-info">
                                 <span class="stat-value" id="activeCars">0</span>
-                                <span class="stat-label">Active Vehicles</span>
+                                <span class="stat-label">🏎️Active Vehicles</span>
                             </div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-info">
                                 <span class="stat-value" id="availableSpots">--</span>
-                                <span class="stat-label">Availacle Sports</span>
+                                <span class="stat-label">📍Availacle Sports</span>
                             </div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-info">
                                 <span class="stat-value" id="todayEarnings">Q 0.00</span>
-                                <span class="stat-label">Today's Earnings</span>
+                                <span class="stat-label">📊Today's Earnings</span>
                             </div>
                         </div>
                     </div>
@@ -79,12 +79,15 @@
                             </button>
                         </div>
                     </div>
+                    <div class="section-header">
+                        <button onclick="resetAll()" class="btn-delete-reset">⚠️ Reset System</button>
+                    </div>
                 </div>
             </section>
             <section id="vehicles-section" class="content-section hidden">
                 <div class="shadow-box">
                     <div class="section-header">
-                        <h2>Vehicle Types Management</h2>
+                        <h2>⚙️Vehicle Types Management</h2>
                         <button id="newTypeBtn" class="btn-primary">+ New Type</button>
                     </div>
                     <!-- table-container AÑADIDO -->
@@ -113,7 +116,7 @@
             <section id="parking-section" class="content-section hidden">
                 <div class="shadow-box">
                     <div class="section-header">
-                        <h2>Registry Enter Vehicle</h2>
+                        <h2>📥 Registry Enter Vehicle</h2>
                     </div>
                     
                     <form id="formParkingEntry" >
@@ -206,10 +209,10 @@
                     <label for="names">Vehicle Type</label>
                     <select id="names" required>
                         <option value="" disabled selected>Select a vehicle...</option>
-                        <option value="Motorcycle" data-price="15.00">Motorcycle</option>
-                        <option value="Car" data-price="30.00">Car</option>
-                        <option value="Bus" data-price="75.00">Bus</option>
-                        <option value="Truck" data-price="100.00">Truck</option>
+                        <option value="Motorcycle" data-price="15.00">🏍️Motorcycle</option>
+                        <option value="Car" data-price="30.00">🚘Car</option>
+                        <option value="Bus" data-price="75.00">🚌Bus</option>
+                        <option value="Truck" data-price="100.00">🚛Truck</option>
                     </select>
                 </div>
         
@@ -219,8 +222,8 @@
                 </div>
         
                 <div class="modal-buttons">
-                    <button type="button" class="btn-cancel" id="btnCancel">Cancel</button>
-                    <button type="submit" class="btn-save">Save</button>
+                    <button type="button" class="btn-cancel" id="btnCancel">🚫Cancel</button>
+                    <button type="submit" class="btn-save">💾Save</button>
                 </div>
             </form>
         </div>
@@ -253,8 +256,8 @@
                 </table>
             </div>
             <div class="modal-buttons">
-                <button type="button" id="btnEditSlot" class="btn-edit">Edit</button>
-                <button type="button" id="btnSaveVacate" class="btn-save-vacate">Confirm Exit</button>
+                <button type="button" id="btnEditSlot" class="btn-edit">✏️Edit</button>
+                <button type="button" id="btnSaveVacate" class="btn-save-vacate">🚪Confirm Exit</button>
             </div>
         </div>
     </div>
@@ -262,14 +265,14 @@
 <div class="modal" id="modalPlateError">
     <div class="modal-content info-card">
         <div class="modal-header">
-            <h3>Entry Error</h3>
+            <h3>❌ Entry Error</h3>
             <button class="close-modal" id="closePlateError">✕</button>
         </div>
         <div class="info-body" style="padding: 20px; text-align:center;">
             <p id="plateErrorMsg">This vehicle is already inside.</p>
         </div>
         <div class="modal-buttons">
-            <button type="button" class="btn-save" id="btnClosePlateError">OK</button>
+            <button type="button" class="btn-save" id="btnClosePlateError">✅ OK</button>
         </div>
     </div>
 </div>
@@ -290,8 +293,8 @@
             </table>
         </div>
         <div class="modal-buttons">
-            <button type="button" class="btn-save-vacate" id="btnConfirmExit">Confirm Exit</button>
-            <button type="button" class="btn-cancel" id="btnCancelExit">Cancel</button>
+            <button type="button" class="btn-save-vacate" id="btnConfirmExit">🚪Confirm Exit</button>
+            <button type="button" class="btn-cancel" id="btnCancelExit">🚫Cancel</button>
         </div>
     </div>
 </div>
@@ -304,25 +307,41 @@
         <div class="info-body">
             <form id="formProfile">
                 <div class="form-group">
-                    <label>Name</label>
+                    <label>👤 Name</label>
                     <input type="text" id="profileName" required>
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
+                    <label>📧 Email</label>
                     <input type="email" id="profileEmail" required>
                 </div>
                 <div class="form-group">
-                    <label>New Password</label>
+                    <label>🔑 New Password</label>
                     <input type="password" id="profilePassword" placeholder="Leave blank to keep current">
                 </div>
                 <div class="modal-buttons">
-                    <button type="button" class="btn-cancel" id="btnCancelProfile">Cancel</button>
-                    <button type="submit" class="btn-save">Save</button>
+                    <button type="button" class="btn-cancel" id="btnCancelProfile">🚫Cancel</button>
+                    <button type="submit" class="btn-save">💾Save</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<div class="modal" id="modalResetConfirm">
+    <div class="modal-content info-card">
+        <div class="modal-header">
+            <h3>⚠️Reset System</h3>
+            <button class="close-modal" id="closeResetModal">✕</button>
+        </div>
+        <div class="info-body" style="padding: 20px; text-align:center;">
+            <p>This will delete all vehicles, history, earnings and types. Are you sure?</p>
+        </div>
+        <div class="modal-buttons">
+            <button type="button" class="btn-cancel" id="btnCancelReset">🚫Cancel</button>
+            <button type="button" class="btn-save-vacate" id="btnConfirmReset">🔄 Yes, Reset</button>
+        </div>
+    </div>
+</div>
+
     <script src="./asset/JS/main.js"></script>
 </body>
 </html>

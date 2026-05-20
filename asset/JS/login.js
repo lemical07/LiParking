@@ -1,4 +1,3 @@
-localStorage.removeItem('appUser');
 const DEFAULT_USER = {
     name: 'admin',
     email: 'admin@liparking.com',
