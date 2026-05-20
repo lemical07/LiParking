@@ -748,3 +748,31 @@ document.getElementById('formProfile').addEventListener('submit', (e) => {
     document.getElementById('userName').textContent = user.name; // actualizamos el nombre en el sidebar
     document.getElementById('modalProfile').style.display = 'none';
 });
+    //Función para resetear sistema
+    function resetAll() {
+        document.getElementById('modalResetConfirm').style.display = 'flex';
+    }
+    
+    document.getElementById('closeResetModal').addEventListener('click', () => {
+        document.getElementById('modalResetConfirm').style.display = 'none';
+    });
+    
+    document.getElementById('btnCancelReset').addEventListener('click', () => {
+        document.getElementById('modalResetConfirm').style.display = 'none';
+    });
+    
+    document.getElementById('btnConfirmReset').addEventListener('click', () => {
+        localStorage.removeItem('dailyEarnings');
+        localStorage.removeItem('parkingHistory');
+        localStorage.removeItem('activeParking');
+        localStorage.removeItem('vehicleType');
+    
+        activeParking = [];
+    
+        renderTable();
+        renderParkingTable();
+        renderSlotsMap();
+        updateHomeStats();
+    
+        document.getElementById('modalResetConfirm').style.display = 'none';
+    });
