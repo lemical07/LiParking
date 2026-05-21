@@ -1,0 +1,89 @@
+<!--tabla estadisitica-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status</title>
+    <link rel="stylesheet" href="./asset/CSS/component.css">
+    <link rel="stylesheet" href="./asset/CSS/layout.css">
+    <link rel="stylesheet" href="./asset/CSS/responsive.css">
+</head>
+<body>
+<!--Info de la tabla:codigo y tipo de vehiculo, num de vehuculos parqueados, tiempo total de servicio, total recaudado-->
+<div class="dashboard">
+    <!--sidebar-->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>🏢LiParking</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="./dashboard.html">Home</a></li>
+                <li><a href="./dashboard.html">Vehicle Types</a></li>
+                <li><a href="./dashboard.html">Parking Services</a></li>
+                <li><a href="./history.html">Reports</a></li>
+                <li class="active"><a href="./status.html">Statistics</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-info">
+            <span id="userName">Admin</span>
+            <button id="logOutBtn" class="btn-signout">Sign Out</button>
+        </div>
+    </aside>
+    <main class="main-content">
+        <header>
+            <button id="menuToggle" class="menu-toggle">☰</button>
+            <h1 class="tittle-header">Statistics</h1>
+            <div></div>
+        </header>
+        <!--importante-->
+        <section>
+            <div class="shadow-box">
+                <div class="section-header">
+                    <h2>Statistics</h2>
+                </div>
+                <!--con dos option, selecionar dos horarios-->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="startTimeSelect">Start Time</label>
+                        <select id="startTimeSelect" required>
+                            <option value="" disabled selected>Select...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="endTimeSelect">Finish Time</label>
+                        <select id="endTimeSelect" required>
+                            <option value="" disabled selected>Select...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-container">
+
+                    <table class="data-table">
+
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Vehicle Type</th>
+                                <th>Parked Vehicles</th>
+                                <th>Total Services Time</th>
+                                <th>Total Earnings</th>
+                            </tr>
+                        </thead>
+                        <tbody id="statusTableBody">
+                        </tbody>
+                    
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</div>
+<script src="./asset/JS/status.js"></script>
+</body>
+</html>
